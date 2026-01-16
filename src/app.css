@@ -1,0 +1,71 @@
+/* Neon Sci-Fi Theme */
+:root {
+  --bg: #050716;
+  --fg: #e5eaff;
+  --accent: #5efcf4;
+  --accent-glow: 0 0 8px rgba(94,252,244,0.8);
+  --panel: #0c0f23;
+  --panel-border: rgba(94,252,244,0.3);
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  /* We keep background transparent so the waves show through */
+  background: transparent; 
+  /* We bring back the neon text colors and font */
+  color: var(--fg);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* This ensures the navy color exists behind the waves, not in front of them */
+.bg-canvas {
+    background-color: #050716 !important;
+}
+
+/* This ensures the navy color exists behind the waves, not in front of them */
+.bg-canvas {
+    background-color: #050716 !important;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--accent);
+  text-shadow: var(--accent-glow);
+}
+
+main {
+  padding: 2rem;
+}
+
+.panel {
+
+  box-shadow: var(--accent-glow);
+}
+/* Force the background animation to stay behind everything */
+canvas, .bg-canvas, .wave-bg {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: -1 !important; /* Forces it to the absolute back */
+    pointer-events: none !important;
+}
+
+/* Force your content to stay in front */
+nav, main, .page-container {
+    position: relative !important;
+    z-index: 10 !important; /* Forces it to the front */
+}
